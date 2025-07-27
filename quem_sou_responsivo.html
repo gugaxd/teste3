@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-BR"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quem sou</title><link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --cor-fundo: #0c0c0c;
+    --cor-texto: #f4f4f4;
+    --cor-hover: #ff0080;
+  }
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  body {
+    text-align: center;
+    font-family: 'Urbanist', sans-serif;
+    background-color: var(--cor-fundo);
+    background-image: url('site_background.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-attachment: fixed;
+    color: var(--cor-texto);
+  }
+  nav {
+    background-color: rgba(0,0,0,0.8);
+    display: flex;
+    justify-content: center;
+    gap: 4rem;
+    padding: 2rem;
+  }
+  nav a {
+    color: var(--cor-texto);
+    text-decoration: none;
+    font-weight: bold;
+    text-transform: uppercase;
+    transition: color 0.3s ease;
+  }
+  nav a:hover, nav a.active {
+    color: var(--cor-hover);
+  }
+  section {
+      text-align: center;
+    padding: 3rem 2rem;
+    max-width: 1000px;
+    margin: auto;
+    border-radius: 8px;
+  }
+  .placeholder {
+    background-color: #333;
+    height: 300px;
+    margin-bottom: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #888;
+  }
+  .side-by-side {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
+  .side-by-side .placeholder {
+    flex: 1 1 300px;
+    height: 200px;
+  }
+  .side-by-side .text {
+    flex: 1 1 300px;
+  }
+
+  /* --- INÍCIO DA SEÇÃO RESPONSIVA --- */
+  @media (max-width: 768px) {
+    nav {
+      flex-direction: column;
+      gap: 1.5rem;
+      padding: 1.5rem;
+    }
+    section {
+      padding: 3rem 1rem;
+    }
+    /*
+      A regra "!important" é necessária aqui para sobrescrever
+      o estilo "width: 40%" que está diretamente no HTML.
+    */
+    section img[src="placeholders/minha-foto.png"] {
+      width: 70% !important; /* Aumenta o tamanho da foto em telas menores */
+    }
+  }
+  /* --- FIM DA SEÇÃO RESPONSIVA --- */
+
+</style>
+</head>
+<body>
+<nav>
+  <a href="index.html">Início</a>
+  <a href="quem-sou.html" class="active">Quem sou</a>
+  <a href="portfolio.html">Portfólio</a>
+  <a href="contato.html">Contato</a>
+</nav>
+<section>
+  <br>
+  <img src="placeholders/minha-foto.png" alt="Imagem de destaque" style="max-width:1000px; width:40%; height: auto; border-radius: 8px;">
+  <br>  <br>  <br>
+  <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.</p>
+</section></body></html>
