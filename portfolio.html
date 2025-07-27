@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfólio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:wght@300;400;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --cor-fundo: #0c0c0c;
+      --cor-texto: #f4f4f4;
+      --cor-hover: #ff0080;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Urbanist', sans-serif;
+      background-color: var(--cor-fundo);
+      background-image: url('site_background.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      background-attachment: fixed;
+      color: var(--cor-texto);
+    }
+    nav {
+      background-color: rgba(0,0,0,0.8);
+      display: flex;
+      justify-content: center;
+      gap: 4rem;
+      padding: 2rem;
+    }
+    nav a {
+      color: var(--cor-texto);
+      text-decoration: none;
+      font-weight: bold;
+      text-transform: uppercase;
+      transition: color 0.3s ease;
+    }
+    nav a:hover, nav a.active {
+      color: var(--cor-hover);
+    }
+    section {
+      padding: 3rem 2rem;
+      text-align: center;
+    }
+    .carousel {
+      position: relative;
+      max-width: 90%;
+      margin: auto;
+    }
+    .carousel img {
+      width: 60vw;
+      max-height: 70vh;
+      object-fit: contain;
+      display: none;
+      margin: auto;
+      border-radius: 12px;
+    }
+    .carousel img.active {
+      display: block;
+    }
+    .carousel p {
+      margin-top: 1rem;
+      font-size: 1rem;
+    }
+    .controls {
+      margin-top: 1rem;
+    }
+    .controls button {
+      background-color: transparent;
+      border: 2px solid var(--cor-hover);
+      color: var(--cor-hover);
+      padding: 0.5rem 1rem;
+      cursor: pointer;
+      margin: 0 1rem;
+      border-radius: 5px;
+      transition: background 0.3s ease;
+    }
+    .controls button:hover {
+      background-color: var(--cor-hover);
+      color: var(--cor-fundo);
+    }
+    
+    /* --- INÍCIO DA SEÇÃO RESPONSIVA --- */
+    @media (max-width: 768px) {
+      nav {
+        flex-direction: column;
+        gap: 1.5rem;
+        padding: 1.5rem;
+      }
+      section {
+        padding: 3rem 1rem;
+      }
+      .carousel img {
+        width: 90vw; /* Faz a imagem ocupar mais da largura da tela */
+        max-height: 60vh;
+      }
+      .controls button {
+        margin: 0 0.5rem; /* Diminui o espaço entre os botões */
+      }
+    }
+    /* --- FIM DA SEÇÃO RESPONSIVA --- */
+    
+  </style>
+</head>
+<body>
+  <nav>
+    <a href="index.html">Início</a>
+    <a href="quem-sou.html">Quem sou</a>
+    <a href="portfolio.html" class="active">Portfólio</a>
+    <a href="contato.html">Contato</a>
+  </nav>
+  <section>
+    <div class="carousel">
+      <img src="placeholders/imagem1.jpg" class="active" alt="Imagem 1">
+      <img src="placeholders/imagem2.jpg" alt="Imagem 2">
+      <img src="placeholders/imagem3.jpg" alt="Imagem 3">
+      <img src="placeholders/imagem4.jpg" alt="Imagem 4">
+      <img src="placeholders/imagem5.jpg" alt="Imagem 5">
+      <p id="desc">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      <div class="controls">
+        <button onclick="mudarSlide(-1)">Anterior</button>
+        <button onclick="mudarSlide(1)">Próximo</button>
+      </div>
+    </div>
+  </section>
+  <script>
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.carousel img');
+    const descricao = document.getElementById('desc');
+    const textos = [
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit.",
+      "Sed ut perspiciatis unde omnis iste natus error sit.",
+      "Ut enim ad minima veniam, quis nostrum exercitationem.",
+      "Duis aute irure dolor in reprehenderit in voluptate.",
+      "Excepteur sint occaecat cupidatat non proident."
+    ];
+
+    function mostrarSlide(n) {
+      slides[slideIndex].classList.remove('active');
+      slideIndex = (slideIndex + n + slides.length) % slides.length;
+      slides[slideIndex].classList.add('active');
+      descricao.textContent = textos[slideIndex];
+    }
+
+    function mudarSlide(n) {
+      mostrarSlide(n);
+    }
+  </script>
+</body>
+</html>
