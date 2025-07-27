@@ -56,19 +56,27 @@
       padding: 3rem 2rem;
       text-align: center;
     }
+    
+    /* --- INÍCIO DAS MUDANÇAS NO CARROSSEL --- */
     .carousel {
       position: relative;
       max-width: 90%;
       margin: auto;
+      /* Novas regras para centralizar com Flexbox */
+      display: flex;
+      flex-direction: column;
+      align-items: center;
     }
     .carousel img {
       width: 60vw;
       max-height: 70vh;
       object-fit: contain;
       display: none;
-      margin: auto;
+      /* margin: auto; FOI REMOVIDO DAQUI */
       border-radius: 12px;
     }
+    /* --- FIM DAS MUDANÇAS NO CARROSSEL --- */
+
     .carousel img.active {
       display: block;
     }
@@ -97,9 +105,9 @@
     /* --- INÍCIO DA SEÇÃO RESPONSIVA --- */
     @media (max-width: 768px) {
       nav {
-        justify-content: flex-start; /* Alinha o conteúdo (hamburger) à esquerda */
+        justify-content: flex-start;
         padding: 1.5rem;
-        z-index: 1000; /* Garante que o menu fique sobre o conteúdo */
+        z-index: 1000;
       }
       .hamburger-menu {
         display: flex;
@@ -134,7 +142,7 @@
         padding: 0;
       }
       .nav-links.active {
-        max-height: 300px; /* Altura suficiente para os links */
+        max-height: 300px;
         padding: 1.5rem 0;
       }
       section {
@@ -159,7 +167,6 @@
       <span></span>
       <span></span>
     </button>
-    <!-- SEÇÃO CORRIGIDA ABAIXO -->
     <div class="nav-links">
       <a href="index.html">Início</a>
       <a href="quem-sou.html">Quem sou</a>
